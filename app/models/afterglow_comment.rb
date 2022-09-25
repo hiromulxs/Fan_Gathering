@@ -1,0 +1,2 @@
+class AfterglowComment < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CommunityFavorite < ApplicationRecord
+end
