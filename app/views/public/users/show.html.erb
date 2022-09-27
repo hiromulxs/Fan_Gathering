@@ -1,0 +1,11 @@
+<h1>マイページ</h1>
+
+<%= @user.nickname %>
+
+<%= @user.introduction %>
+
+<% if @user == current_user %>
+  <%= @user.email %>
+<% end %>
+
+

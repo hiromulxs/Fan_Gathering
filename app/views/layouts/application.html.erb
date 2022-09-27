@@ -2,15 +2,51 @@
 <html>
   <head>
     <title>FanGathering</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark text-white", style="background-color: #660099;">
+        <div class="container">
+          <h1 class="">
+            <%= link_to root_path do %>
+              <%= image_tag "Fanga.jpg"%>
+            <% end %>
+          </h1>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "コミュニティ一覧", community_index_path, class: " text-white  mx-3" %>
+                </li>
+                <li>
+                  <%= link_to "マイページ", user_path(current_user), class: "text-white  mx-3" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white  mx-2" %>
+                </li>
+              <% elsif admin_signed_in? %>
+
+              <% else %>
+                <li>
+                  <%= link_to "新規登録", root_path, class: "text-white mx-3" %>
+                </li>
+                <li>
+                  <%= link_to "ログイン", new_user_session_path, class: "text-white mx-3" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

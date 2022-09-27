@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_25_115401) do
+ActiveRecord::Schema.define(version: 2022_09_25_115848) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2022_09_25_115401) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "afterglow_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "afterglow_id"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "afterglows", force: :cascade do |t|
@@ -69,12 +77,28 @@ ActiveRecord::Schema.define(version: 2022_09_25_115401) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "event_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.integer "user_id"
     t.integer "community_id"
     t.string "title"
     t.time "time"
     t.string "introduction"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "main_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "main_post_id"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
