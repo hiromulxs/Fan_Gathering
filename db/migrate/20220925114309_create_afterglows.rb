@@ -3,7 +3,7 @@ class CreateAfterglows < ActiveRecord::Migration[6.1]
     create_table :afterglows do |t|
       t.integer :user_id
       t.integer :community_id
-      t.string :afterglow_text
+      t.string :afterglow_text, null: false
       t.timestamps
     end
   end

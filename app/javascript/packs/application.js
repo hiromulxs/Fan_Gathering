@@ -17,3 +17,14 @@ import "../stylesheets/application"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+document.addEventListener("turbolinks:load", function() {
+  $(function() {
+    $('#aaaaa').on('click', function(e) {
+      e.preventDefault();
+      $('#tags').append('<li><div class="tag_button">' + $('input[name="tag_input"]').val() + '</div></li>');
+      $('input[name="community[tag_name]"]').val($('input[name="community[tag_name]"]').val() + "/" + $('input[name="tag_input"]').val());
+    });
+  });
+});

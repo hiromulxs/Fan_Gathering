@@ -1,2 +1,26 @@
-<h1>Public::Community#new</h1>
-<p>Find me in app/views/public/community/new.html.erb</p>
+<%= form_with model: @community, url: community_index_path, method: :post do |f| %>
+  <table class="table table-borderless ">
+    <tr>
+      <th><%= f.label :コミュニティ名, class: "px-5" %></th>
+      <th><%= f.text_field :name, accept: "image/*" %></th>
+    </tr>
+    <tr>
+      <th><%= f.label :コミュニティ説明, class: "px-5" %></th>
+      <th><%= f.text_area :introduction, size: "30x5" %></th>
+    </tr>
+
+    <tr>
+      <th><%= f.label :タグ, class: "px-5" %></th>
+      <th><%= text_field_tag :tag_input %></th>
+      <th><%= button_tag "新規作成" ,id: "aaaaa"%></th>
+    </tr>
+    <tr>
+      <th><ul id="tags">      </ul></th>
+      <th><%= f.hidden_field :tag_name %></th>
+    </tr>
+
+    <tr>
+      <th><%= f.submit "新規作成" , class: "mx-5 btn btn-success btn-lg w-50" %></th>
+    </tr>
+  </table>
+<% end %>
