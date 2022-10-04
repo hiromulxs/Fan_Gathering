@@ -1,2 +1,39 @@
-<h1>Public::Community#edit</h1>
-<p>Find me in app/views/public/community/edit.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div id="error_explanation">
+  </div>
+  <%= form_with model: @community, url: community_path, method: :patch do |f| %>
+    <div class="row ">
+      <div class="col-md-12 ">
+        <table class="table table-borderless ">
+          <tr>
+            <th><%= f.label :コミュニティ名, class: "px-5" %></th>
+            <th><%= f.text_field :name, size: "51" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :コミュニティ説明, class: "px-5" %></th>
+            <th><%= f.text_area :introduction, size: "50x5" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :タグ, class: "px-5" %></th>
+            <th><%= text_field_tag :tag_input %>　<%= button_tag "タグ追加" ,id: "new_button"%></th>
+          </tr>
+          <tr>
+            <th><ul id="tags">      </ul></th>
+            <th><%= f.hidden_field :tag_name %></th>
+          </tr>
+    <!--    </table>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--<div class="row ">-->
+    <!--  <div class="col-md-12">-->
+    <!--    <table>-->
+          <tr>
+            <th></th>
+            <th><%= f.submit "新規作成" , class: "mx-5 btn btn-success w-25" %></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>

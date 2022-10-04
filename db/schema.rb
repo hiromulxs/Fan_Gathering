@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_28_113305) do
+ActiveRecord::Schema.define(version: 2022_10_04_103857) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 2022_09_28_113305) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "calenders", force: :cascade do |t|
+  create_table "calendars", force: :cascade do |t|
     t.integer "community_id"
     t.string "prefectures", null: false
     t.string "venue", null: false
-    t.time "product_sales", null: false
-    t.time "opening_time", null: false
-    t.time "start_time", null: false
+    t.datetime "product_sales", null: false
+    t.datetime "opening_time", null: false
+    t.datetime "start_time", null: false
     t.integer "drink_fee"
     t.string "venue_information"
     t.text "postscript"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_113305) do
     t.string "main_text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "community_id"
   end
 
   create_table "tag_maps", force: :cascade do |t|

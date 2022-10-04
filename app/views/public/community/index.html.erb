@@ -1,11 +1,26 @@
-<% @communities.each do |community| %>
+<%= link_to "新規作成する", new_community_path %>
 
-  <%= community.name %>
-
-    <% community.tags.each do |tag| %>
-
-      <%=tag.tag_name %>
-
+<table class="table table-borderless ">
+  <%#= link_to community_path(community.id) do %>
+    <% @communities.each do |community| %>
+    <tbody style="border: 1px solid black; margin-bottom: 20px;">
+      <%#= link_to community_path(community.id) do %>
+      <tr>
+        <th><%= link_to community_path(community.id) do %>
+        <%= community.name %>
+        <% end %></th>
+        <th><%= community.introduction %></th>
+      </tr>
+      <!--<tr>-->
+      <!--  <th>-->
+      <!--    <%# community.tags.each do |tag| %>-->
+      <!--      <%#=tag.tag_name %>-->
+      <!--    <%# end %>-->
+      <!--  </th>-->
+      <!--</tr>-->
+      <%# end %>
+    </tbody>
     <% end %>
+  <%# end %>
+</table>
 
-<% end %>

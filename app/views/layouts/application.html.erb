@@ -21,6 +21,10 @@
               <%= image_tag "Fanga.jpg"%>
             <% end %>
           </h1>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
@@ -31,7 +35,7 @@
                   <%= link_to "マイページ", user_path(current_user), class: "text-white  mx-3" %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white  mx-2" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white  mx-3" %>
                 </li>
               <% elsif admin_signed_in? %>
 
@@ -48,6 +52,11 @@
         </div>
       </nav>
     </header>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer class="d-flex align-items-center justify-content-center text-white" style="background-color: #660099; height: 50px;">
+      <p>Fan Gathering.</p>
+    </footer>
   </body>
 </html>

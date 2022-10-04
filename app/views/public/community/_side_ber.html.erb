@@ -1,0 +1,22 @@
+<!--@community→community-->
+<table class="table table-borderless ">
+  <tbody style="border: 1px solid black; margin-bottom: 20px;">
+    <tr>
+      <th><%= link_to "コミュニティTOP", community_path(community), class: "btn btn-info w-100" %></th>
+    </tr>
+    <tr>
+      <th><%= link_to "ファンたちのイベント", community_events_path(community), class: "btn btn-info w-100" %></th>
+    </tr>
+    <tr>
+      <th><%= link_to "LIVEカレンダー", community_calendars_path(community), class: "btn btn-info w-100" %></th>
+    </tr>
+    <tr>
+      <th><%= link_to "ライブ余韻投稿", community_afterglows_path(community), class: "btn btn-info w-100" %></th>
+    </tr>
+    <tr>
+      <th><%= link_to "なんでも投稿", community_path(community), class: "btn btn-info w-100" %></th>
+    </tr>
+  </tbody>
+</table>
+
+<!--render 'side_ber', community: @community-->

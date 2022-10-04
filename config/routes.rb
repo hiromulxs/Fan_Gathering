@@ -16,7 +16,20 @@ Rails.application.routes.draw do
     get '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
     patch "/users/:id/withdrawal" => "users#withdrawal", as: "withdrawal_user"
 
-    resources :community, only: [:new, :create, :index, :show, :edit]
+    resources :community, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resources :main_posts, only: [:create, :show, :destroy] do
+        resources :main_comments, only: [:create, :destory]
+      end
+      resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+        resources :event_comments, only: [:create, :destroy]
+      end
+      resources :calendars, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+
+      end
+      resources :afterglows, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+        resources :afterglow_comments, only: [:create, :destroy]
+      end
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

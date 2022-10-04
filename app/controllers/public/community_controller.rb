@@ -4,23 +4,6 @@ class Public::CommunityController < ApplicationController
   end
 
   def create
-    # @community = Community.new(community_params)
-    # if @community.save
-    #   @community.save_tags(params[:community][:tag])
-    #   redirect_to community_index_path
-    # else
-    #   render :new
-    # end
-
-    # @community = Community.new(community_params)
-    # if @community.save
-    #   tag_list = tag_params[:tag_names].delete(" ").split("、")
-    #   @community.save_tags(tag_list)
-    #   redirect_to community_index_path
-    # else
-    #   render 'new'
-    # end
-
     @community = current_user.communities.new(community_params)
     tag_list = params[:community][:tag_name].split("/")
     if @community.save!
@@ -36,13 +19,25 @@ class Public::CommunityController < ApplicationController
   end
 
   def show
+    @community = Community.find(params[:id])
+    @main_posts = @community.main_posts
+    @main_post = MainPost.new
   end
 
   def edit
+    @community = Community.find(params[:id])
+  end
+
+  def update
+    @community = Community.find(params[:id])
+    @community.update
+    redirect_to community(@community)
   end
 
   private
   def community_params
     params.require(:community).permit(:name, :introduction)
   end
+
+
 end

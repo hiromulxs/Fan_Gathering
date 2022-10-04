@@ -1,0 +1,41 @@
+<%= form_with model: @calender, url: community_index_path, method: :post do |f| %>
+
+  <div class="title">
+    <%= f.label :prefectures %>
+    <%= f.text_field :prefectures %>
+  </div>
+  <div class="title">
+    <%= f.label :venue %>
+    <%= f.text_field :venue %>
+  </div>
+  <div class="title">
+    <%= f.label :product_sales %>
+    <%= f.datetime_select :product_sales %>
+  </div>
+<div class="title">
+    <%= f.label :opening_time %>
+    <%= f.datetime_select :opening_time %>
+  </div>
+  <div class="time">
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <div class="content">
+    <%= f.label :drink_fee %>
+    <%= f.text_field :drink_fee %>
+  </div>
+  <div class="content">
+    <%= f.label :venue_information %>
+    <%= f.text_field :venue_information %>
+  </div>
+  <div class="content">
+    <%= f.label :postscript %>
+    <%= f.text_field :postscript %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+
+<% end %>

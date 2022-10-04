@@ -1,0 +1,51 @@
+<p id="notice"></p>
+<div class="container">
+  <div id="error_explanation">
+  </div>
+  <div class="row ">
+    <div class="col-md-3">
+      <%= form_with model: @calendar, url: community_calendars_path, method: :post do |f| %>
+     <div>
+       <label>都道府県</label>
+       <p><%= f.text_field :prefectures %></p>
+       <label>会場名</label>
+       <p><%= f.text_field :venue %></p>
+       <label>開演時間</label>
+       <p><%= f.datetime_field :start_time %></p>
+       <label>開場時間</label>
+       <p><%= f.time_field :opening_time %></p>
+       <labe>先行物販時間</label>
+       <p><%= f.time_field :product_sales %></p>
+       <label>ドリンク代</label>
+       <p><%= f.text_field :drink_fee %></p>
+       <label>会場情報(URLなど)</label>
+       <p><%= f.text_field :venue_information %></p>
+       <label>備考欄</label>
+       <p><%= f.text_area :postscript %></p>
+     </div>
+     <div>
+       <%= f.submit "登録" , class: "mx-5 btn btn-success w-25" %>
+     </div>
+   <% end %>
+    </div>
+    <div class="col-md-9 ">
+
+<%= month_calendar events: @calendars do |date, calendar| %>
+  <%= date.day %>
+  <%#= calendar.prefectures %>
+<% end %>
+
+      <%#= month_calendar do |date| %>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <%#= date.day %>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      <%# end %>
+    </div>
+  </div>
+</div>

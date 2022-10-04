@@ -1,2 +1,72 @@
-<h1>Public::Community#show</h1>
-<p>Find me in app/views/public/community/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div id="error_explanation">
+  </div>
+  <div class="row ">
+    <div class="col-md-12 text-right">
+      <p>作成者　<%= @community.user.nickname %></p>
+    </div>
+    <div class="col-md-3">
+      <%= render 'side_ber', community: @community %>
+    </div>
+    <div class="col-md-9 ">
+      <table class="table table-borderless ">
+        <tbody style="border: 1px solid black; margin-bottom: 20px;">
+          <tr>
+            <th>コミュニティ名</th>
+          </tr>
+          <tr>
+            <th style= "font-size: 40px" ><%= @community.name %></th>
+          </tr>
+           <tr>
+            <th>コミュニティ説明</th>
+          </tr>
+          <tr>
+            <th><%= @community.introduction %></th>
+          </tr>
+           <tr>
+            <th>タグ</th>
+          </tr>
+          <tr>
+            <th>
+              <% @community.tags.each do |tag| %>
+                <%=tag.tag_name %>
+              <% end %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <%= form_with model: @main_post, url: community_main_posts_path(@community), method: :post do |f| %>
+      <table>
+        <tr>
+          <th>
+            <%= f.text_area :main_text, size: "27x5"%>
+          </th>
+        </tr>
+        <tr>
+          <th class="text-center">
+            <%= f.submit "投稿" , class: "btn btn-success btn-sm" %>
+          </th>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+    <div class="col-md-9 ">
+      <% @main_posts.each do |main_post| %>
+      <table>
+        <tr>
+          <th>
+            <%= main_post.user.nickname %>
+            <%= main_post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          </th>
+        </tr>
+        <tr>
+          <th><%= main_post.main_text %></th>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
