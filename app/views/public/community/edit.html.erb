@@ -22,15 +22,10 @@
             <th><ul id="tags">      </ul></th>
             <th><%= f.hidden_field :tag_name %></th>
           </tr>
-    <!--    </table>-->
-    <!--  </div>-->
-    <!--</div>-->
-    <!--<div class="row ">-->
-    <!--  <div class="col-md-12">-->
-    <!--    <table>-->
           <tr>
             <th></th>
-            <th><%= f.submit "新規作成" , class: "mx-5 btn btn-success w-25" %></th>
+            <th><%= f.submit "変更する" , class: "mx-5 btn btn-success w-25" %></th>
+            <th><%= link_to "削除", community_path, method: :delete, data: {confirm: "コミュニティを本当に削除しますか？？"} %></th>
           </tr>
         </table>
       </div>

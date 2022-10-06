@@ -1,41 +1,29 @@
-<%= form_with model: @calender, url: community_index_path, method: :post do |f| %>
-
-  <div class="title">
-    <%= f.label :prefectures %>
-    <%= f.text_field :prefectures %>
+<p id="notice"></p>
+<div class="container">
+  <div id="error_explanation">
   </div>
-  <div class="title">
-    <%= f.label :venue %>
-    <%= f.text_field :venue %>
+  <div class="row ">
+    <div class="col-md-12">
+      <%= form_with model: @calendar, url: community_calendars_path, method: :post do |f| %>
+              <label>都道府県</label>
+              <p><%= f.text_field :prefectures %></p>
+              <label>会場名</label>
+              <p><%= f.text_field :venue %></p>
+              <label>開場時間</label>
+              <p><%= f.time_field :opening_time %></p>
+              <label>開演時間</label>
+              <p><%= f.datetime_field :start_time %></p>
+              <labe>先行物販時間</label>
+              <p><%= f.time_field :product_sales %></p>
+              <label>ドリンク代</label>
+              <label>会場情報(URLなど)</label>
+              <p><%= f.text_field :venue_information %></p>
+              <label>備考欄</label>
+              <p><%= f.text_area :postscript %></p>
+        <div>
+          <%= f.submit "登録" , class: "mx-5 btn btn-success w-25" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="title">
-    <%= f.label :product_sales %>
-    <%= f.datetime_select :product_sales %>
-  </div>
-<div class="title">
-    <%= f.label :opening_time %>
-    <%= f.datetime_select :opening_time %>
-  </div>
-  <div class="time">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
-  </div>
-
-  <div class="content">
-    <%= f.label :drink_fee %>
-    <%= f.text_field :drink_fee %>
-  </div>
-  <div class="content">
-    <%= f.label :venue_information %>
-    <%= f.text_field :venue_information %>
-  </div>
-  <div class="content">
-    <%= f.label :postscript %>
-    <%= f.text_field :postscript %>
-  </div>
-
-  <div class="submit">
-    <%= f.submit %>
-  </div>
-
-<% end %>
+</div>

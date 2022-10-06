@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'afterglows/index'
+    get 'afterglows/new'
+    get 'afterglows/show'
+    get 'afterglows/edit'
+  end
+  namespace :public do
+    get 'events/index'
+    get 'events/new'
+    get 'events/show'
+    get 'events/edit'
+  end
   devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'

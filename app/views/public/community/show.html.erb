@@ -4,7 +4,11 @@
   </div>
   <div class="row ">
     <div class="col-md-12 text-right">
-      <p>作成者　<%= @community.user.nickname %></p>
+      <p>作成者　<%= @community.user.nickname %>
+      <% if user_signed_in? && current_user.id == @community.user_id %>
+        <%= link_to "編集する", edit_community_path(@community) %>
+      <% end %>
+        </p>
     </div>
     <div class="col-md-3">
       <%= render 'side_ber', community: @community %>

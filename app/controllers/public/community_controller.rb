@@ -8,7 +8,7 @@ class Public::CommunityController < ApplicationController
     tag_list = params[:community][:tag_name].split("/")
     if @community.save!
       @community.save_tag(tag_list)
-       redirect_to community_index_path
+       redirect_to community_path(@community)
     else
       render 'new'
     end
@@ -30,8 +30,14 @@ class Public::CommunityController < ApplicationController
 
   def update
     @community = Community.find(params[:id])
-    @community.update
-    redirect_to community(@community)
+    @community.update(community_params)
+    redirect_to community_path(@community)
+  end
+
+  def destroy
+    @community = Community.find(params[:id])
+    @community.destroy
+    redirect_to community_index_path
   end
 
   private

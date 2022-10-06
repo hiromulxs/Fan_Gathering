@@ -19,8 +19,9 @@
             <th><%= text_field_tag :tag_input %>　<%= button_tag "タグ追加" ,id: "new_button"%></th>
           </tr>
           <tr>
+            <th></th>
             <th><ul id="tags">      </ul></th>
-            <th><%= f.hidden_field :tag_name %></th>
+            <%= f.hidden_field :tag_name %>
           </tr>
     <!--    </table>-->
     <!--  </div>-->

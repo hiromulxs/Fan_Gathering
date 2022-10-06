@@ -15,3 +15,15 @@
  *= require_self
  */
 
+main {
+  background-color: #DDA0DD;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+li {
+  padding-right: 40px;
+}
