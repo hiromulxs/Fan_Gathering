@@ -11,8 +11,12 @@ class Public::CalendarsController < ApplicationController
 
   def create
    	@calendar = Calendar.new(calendar_params)
-    @calendar.save
-    redirect_to community_index_path
+    @calendar.save!
+    redirect_to community_calendars_path
+  end
+
+  def show
+   
   end
 
   def edit

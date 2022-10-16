@@ -10,23 +10,16 @@
       <%= render 'public/community/side_ber', community: @community %>
     </div>
     <div class="col-md-9 ">
-
-<%= month_calendar events: @calendars do |date, calendar| %>
-  <%= date.day %>
-  <%#= calendar.prefectures %>
-<% end %>
-
-      <%#= month_calendar do |date| %>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <%#= date.day %>
-              </th>
-            </tr>
-          </thead>
-        </table>
-      <%# end %>
+      <%= month_calendar events: @calendars do |date, calendars| %>
+        <%= date.day %>
+        <% calendars.each do |calendar| %>
+          <div>
+            <%= link_to community_calendar_path(@community.id, calendar.id) do %>
+              <%= calendar.prefectures %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

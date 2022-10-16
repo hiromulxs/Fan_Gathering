@@ -20,6 +20,7 @@
               <p><%= f.text_field :venue_information %></p>
               <label>備考欄</label>
               <p><%= f.text_area :postscript %></p>
+              <%= f.hidden_field :community_id, value: params[:community_id] %>
         <div>
           <%= f.submit "登録" , class: "mx-5 btn btn-success w-25" %>
         </div>

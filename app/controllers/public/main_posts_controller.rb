@@ -9,6 +9,15 @@ class Public::MainPostsController < ApplicationController
   end
 
   def show
+    @community = Community.find(params[:community_id])
+    @main_post =MainPost.find(params[:id])
+  end
+
+  def destroy
+    @main_post = MainPost.find(params[:id])
+    community = @main_post.community
+    @main_post.destroy
+    redirect_to community_path(community)
   end
 
   private

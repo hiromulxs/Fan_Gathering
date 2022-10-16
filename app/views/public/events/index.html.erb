@@ -1,2 +1,26 @@
-<h1>Public::Events#index</h1>
-<p>Find me in app/views/public/events/index.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div id="error_explanation">
+  </div>
+  <div class="row ">
+    <div class="col-md-12 text-right">
+      <%= link_to "イベント作成", community_events_path(@community) %>
+    </div>
+    <div class="col-md-3">
+      <%= render 'public/community/side_ber', community: @community %>
+    </div>
+    <div class="col-md-9 ">
+      <%= month_calendar do |date| %>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <%= date.day %>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

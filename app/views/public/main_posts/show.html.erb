@@ -1,2 +1,17 @@
-<h1>Public::MainPosts#show</h1>
-<p>Find me in app/views/public/main_posts/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div id="error_explanation">
+  </div>
+  <div class="row ">
+      <div class="col-md-3">
+      <%= render 'public/community/side_ber', community: @community %>
+    </div>
+    <div class="col-md-9 ">
+      <%= @main_post.user.nickname %>
+      <%= @main_post.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      <%= @main_post.main_text %>
+
+      <%= link_to "削除する", community_main_post_path(@main_post), method: :delete %>
+    </div>
+  </div>
+</div>
